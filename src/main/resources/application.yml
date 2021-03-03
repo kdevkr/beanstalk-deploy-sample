@@ -1,0 +1,9 @@
+spring:
+  main:
+    banner-mode: off
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
