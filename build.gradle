@@ -52,7 +52,7 @@ task procfile(dependsOn: 'bootWar') {
 }
 
 task zipBeanstalk(type: Zip, dependsOn: 'procfile') {
-//    from ('.ebextensions') { into '.ebextensions' }
+    from ('.ebextensions') { into '.ebextensions' }
 //    from ('.platform') { into '.platform' }
 
     from ('build/libs') {
