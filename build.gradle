@@ -7,6 +7,9 @@ plugins {
 
 group = 'com.example'
 sourceCompatibility = '11'
+if('unspecified' == project.property("version")) {
+    project.version = '1.0.0'
+}
 
 configurations {
     compileOnly {
@@ -32,17 +35,10 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-if('unspecified' == project.property("version")) {
-    project.version = '1.0.0'
-}
 
 springBoot {
     println 'JDK info: ' + JavaVersion.current()
     buildInfo()
-}
-
-bootWar {
-    archiveFileName = 'app-' + project.version + '.war'
 }
 
 task procfile(dependsOn: 'bootWar') {
